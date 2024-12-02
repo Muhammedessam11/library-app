@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: library-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: library-frontend
+  template:
+    metadata:
+      labels:
+        app: library-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: mohamedessam1911/library-frontend:latest
+        ports:
+        - containerPort: 3000
+
